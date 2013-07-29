@@ -1,6 +1,6 @@
 <?php
 
-$nomes = array("Victor", "Diogo", "Ney", "Java", "Arlindo", "Joao");
+$nomes = array("Victor", "Diogo", "Rose", "Java", "Arlindo", "Euler");
 $emails = array("ba.elias@gmail.com", "euler.santana@yahoo.com", "diogopri2@gmail.com", "chuckymass@gmail.com", "www.jvfm@hotmail.com", "nancibonfim@gmail.com", "caio@dcc.ufba.br");
 
 // for ($i = 0; $i < 4; $i++)
