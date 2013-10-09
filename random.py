@@ -2,9 +2,9 @@ import os
 import random
 from flask import Flask
 from flask import render_template
-# from flask import request
+from flask import request
 
-#app = Flask(__name__)
+app = Flask(__name__)
 #app.debug = True  # Activating Debug of the App
 
 @app.route('/')
@@ -33,5 +33,5 @@ def result():
 		
 	 	return str(result)
 
-# if __name__ == '__main__':
-    # app.run()
+if __name__ == '__main__':
+    app.run(host='0.0.0.0')
