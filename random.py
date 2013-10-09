@@ -33,5 +33,5 @@ def result():
 		
 	# 	return str(result)
 
-if __name__ == '__main__':
-    app.run()
+# if __name__ == '__main__':
+    # app.run()
