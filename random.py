@@ -4,8 +4,8 @@ from flask import Flask
 from flask import render_template
 from flask import request
 
-#app = Flask(__name__)
-#app.debug = True  # Activating Debug of the App
+app = Flask(__name__)
+app.debug = True  # Activating Debug of the App
 
 @app.route('/')
 def hello():
@@ -32,3 +32,6 @@ def result():
 			result.append(elements.pop(pos) + " -> " + things[selector])
 		
 		return str(result)
+
+if __name__ == '__main__':
+    app.run()
