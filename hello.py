@@ -5,6 +5,7 @@ from flask import render_template
 from flask import request
 
 app = Flask(__name__)
+app.debug = True  # Activating Debug of the App
 
 @app.route('/')
 def hello():
