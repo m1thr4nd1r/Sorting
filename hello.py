@@ -14,13 +14,15 @@ def hello():
 
 @app.route('/result', methods=['GET', 'POST'])
 def result():
+	result = []
+	
 	# If inside the result path, then do the sorting and render the template (with the data)
 	if request.method == 'POST':
 		
 		elements = request.values.getlist('element') # Gets all values of tags named 'element'
 		elements_bck = elements
 		groups = request.values.getlist('group') # Same as before, for tags named 'thing'
-	 	result = []
+	 	
 	 	sort = []
 
 		selector = -1
