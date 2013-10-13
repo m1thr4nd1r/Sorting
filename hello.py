@@ -30,4 +30,4 @@ def result():
 			selector = (selector + 1) % len(things)
 			result.append(elements.pop(pos) + " -> " + things[selector])
 		
- 	return str(result)
+ 	return render_template('results.html', results = result, elements = elements_bck, things = things)
