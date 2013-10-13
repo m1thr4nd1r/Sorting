@@ -1,21 +1,12 @@
-<!DOCTYPE html>
-<html>
-	<head>
-		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title> Random </title>
-
-        <!-- Latest compiled and minified CSS -->
-		<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css">
-
-		<!-- Optional theme -->
-		<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-theme.min.css">
-        
-	</head>
-    <body>
-    	To aqui
-    </body>
-    <footer>
-    	<!-- Latest compiled and minified JavaScript -->
-		<script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
-    </footer>
-</html>
+{% extends "base.html" %}
+    {% block title %} Random - Index {% endblock %}
+    {% block body %}
+        {{ results }}
+    	<ul id = "result_list">
+        {% for result in results %}
+            <li> {{ result }} </li>
+        {% endfor %}
+        </ul>
+        <ul id = "resultsByGroup">
+        </ul>
+    {% endblock %}

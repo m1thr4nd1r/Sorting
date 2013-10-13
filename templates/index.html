@@ -1,10 +1,6 @@
-<!DOCTYPE html>
-<html>
-	<head>
-		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title> Random </title>
-    </head>
-    <body>
+{% extends "base.html" %}
+    {% block title %} Random - Index {% endblock %}
+    {% block body %}
     	<form action="result" method="POST">
         <!-- Elements <input type="text" name="elements"> -->
         Elements <br/>
@@ -16,7 +12,8 @@
         <input type="button" value="Add new thing" onclick="add('thing')"/>  
         <input type="submit">
         </form>
-    </body>
+    {% endblock %}
+    {% block scripts %}
     <script language="javascript">
         function add(base) 
         {
@@ -34,4 +31,4 @@
             doc.appendChild(element);
         }
     </script>
-</html>
+    {% endblock %}

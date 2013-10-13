@@ -28,6 +28,9 @@ def result():
 			
 			pos = random.randint(0,len(elements) - 1)
 			selector = (selector + 1) % len(things)
+			sort = [selector, pos]
+			# result.append(sort)
 			result.append(elements.pop(pos) + " -> " + things[selector])
-		
+	
+	# print(result)	
  	return render_template('results.html', results = result, elements = elements_bck, things = things)
