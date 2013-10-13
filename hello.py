@@ -32,7 +32,7 @@ def result():
 			pos = random.randint(0,len(elements) - 1)
 			selector = (selector + 1) % len(groups)
 			sort = [selector, pos]
-			result.append([selector, pos)
+			result.append([selector, pos])
 			#result.append(elements.pop(pos) + " -> " + groups[selector])
 	
 	return str(result)
