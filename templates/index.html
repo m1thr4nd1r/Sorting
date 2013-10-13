@@ -1,17 +1,25 @@
 {% extends "base.html" %}
-    {% block title %} Random - Index {% endblock %}
+    {% block title %} Sorting - Index {% endblock %}
     {% block body %}
-    	<form action="result" method="POST">
-        <!-- Elements <input type="text" name="elements"> -->
-        Elements <br/>
-        <span id="elements"></span>   
-        <input type="button" value="Add new element" onclick="add('element')"/>  
-        <!-- Things <input type="text" name="things"> -->
-        Things <br/>
-        <span id="things"></span> 
-        <input type="button" value="Add new thing" onclick="add('thing')"/>  
-        <input type="submit">
-        </form>
+    	<div class="container">
+            <h1><p class="text-center col-md-12"> Welcome to the Sorting App </p></h1> 
+            <h2><p class="text-center col-md-12"> The basic ideia of this app is to give each element an group, making possible to sort a group of individuals in a variable number of groups </p></h2>
+            <form action="result" method="POST">
+                <h3><span class='col-md-6 text-center'> Elements </span></h3>
+                <h3><span class='col-md-6 text-center'> Groups </span></h3>
+                <h4><span id="elements" class="col-md-6 text-center"></span></h4>
+                <h4><span id="groups" class="col-md-6 text-center"></span></h4>
+                <div id="newElement" class="col-md-6 text-center">
+                    <input type="button" class="btn btn-info btn-sm" value="Add new element" onclick="add('element')"/>  
+                </div>
+                <div id="newGroup" class="col-md-6 text-center">
+                    <input type="button" onclick="add('group')" class="btn btn-info btn-sm" value="Add new group"/>  
+                </div>
+                <div id="submit" class="col-md-12 text-center">
+                    <input type="submit" value="Sort It!" class="btn btn-primary btn-lg">
+                </div>
+            </form>
+        </div>
     {% endblock %}
     {% block scripts %}
     <script language="javascript">
@@ -23,7 +31,7 @@
             //Assign different attributes to the element.
             element.setAttribute("type", "text");
             element.setAttribute("name", base);
-            element.style.display = "block";
+            element.style.display = "inherit";
 
             var doc = document.getElementById(base + 's');
 

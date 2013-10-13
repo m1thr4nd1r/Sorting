@@ -19,18 +19,19 @@ def result():
 		
 		elements = request.values.getlist('element') # Gets all values of tags named 'element'
 		elements_bck = elements
-		things = request.values.getlist('thing') # Same as before, for tags named 'thing'
+		groups = request.values.getlist('group') # Same as before, for tags named 'thing'
 	 	result = []
+	 	sort = []
 
 		selector = -1
 
 		while len(elements) > 0:
 			
 			pos = random.randint(0,len(elements) - 1)
-			selector = (selector + 1) % len(things)
+			selector = (selector + 1) % len(groups)
 			sort = [selector, pos]
-			# result.append(sort)
-			result.append(elements.pop(pos) + " -> " + things[selector])
+			result.append([selector, pos)
+			#result.append(elements.pop(pos) + " -> " + groups[selector])
 	
-	# print(result)	
- 	return render_template('results.html', results = result, elements = elements_bck, things = things)
+	return str(result)
+	#return render_template('results.html', results = result, elements = elements_bck, groups = groups)
