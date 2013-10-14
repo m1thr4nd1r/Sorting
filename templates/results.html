@@ -1,12 +1,33 @@
 {% extends "base.html" %}
     {% block title %} Sorting - Results {% endblock %}
     {% block body %}
-        {{ results }}
-    	<ul id = "result_list">
-        {% for result in results %}
-            <li> {{ result }} </li>
-        {% endfor %}
-        </ul>
-        <ul id = "resultsByGroup">
-        </ul>
+        {{ results }} 
+
+        <br/><br/>
+
+        <div id="resultsByOrder">    	
+            <ul>
+            {% for element in range (results[0]|count) %}        
+                {% for group in groups %}
+                    <li> {{ results[loop.index0][element] }} -> {{ group }} </li>
+                {% endfor %}
+            {% endfor %}
+            </ul>
+        </div>
+
+        <br/>        
+
+        <div id = "resultsByGroup">
+            <ul>
+            {% for group in results %}
+                {{ groups[loop.index0] }}
+                <li> {{ group }} </li>            
+                {% for element in group %}
+                    <li> {{ element }} </li>   
+                {% endfor %}
+                <br/>
+            {% endfor %}
+            </ul>
+        </div> 
+
     {% endblock %}
