@@ -38,3 +38,5 @@ def result():
 	
 	# return str(result)
 	return render_template('results.html', results = result, groups = groups)
+	#Como salvar no banco:
+	# Elemento | Grupo | Data/Hora que o sorteio foi realizado
