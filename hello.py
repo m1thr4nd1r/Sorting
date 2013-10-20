@@ -32,11 +32,8 @@ def result():
 			pos = random.randint(0,len(elements) - 1)
 			selector = (selector + 1) % len(groups)
 			result[selector].append(elements.pop(pos))		
-			#sort = [selector, pos]
-			#result.append([selector, pos])
-			#result.append(elements.pop(pos) + " -> " + groups[selector])
 	
-	# return str(result)
 	return render_template('results.html', results = result, groups = groups)
+	
 	#Como salvar no banco:
 	# Elemento | Grupo | Data/Hora que o sorteio foi realizado
