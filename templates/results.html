@@ -1,8 +1,6 @@
-{% extends "base.html" %}
+{% extends "index.html" %}
     {% block title %} Sorting - Results {% endblock %}
     {% block body %}
-        {{ results }} 
-
         <div id="resultsByOrder">    	
             <a class="btn btn-default" style="margin-bottom: 10px;" href="#">Resultado por ordem de sorteio &raquo;</a>
             <ul class="collapse list-unstyled">
@@ -16,17 +14,20 @@
 
         <div id = "resultsByGroup">
             {% for group in results %}
-            <a class="btn btn-default" style="margin-bottom: 10px;" href="#"> {{ groups[loop.index0] }} &raquo;</a>
+            <a class="btn btn-default" style="margin-bottom: 10px;" href="#"> Group {{ groups[loop.index0] }} &raquo;</a>
             <ul class="collapse list-unstyled">   
                 {% for element in group %}
                     <li> {{ element }} </li>   
                 {% endfor %}
             </ul>
+            <div class="clearfix"></div>
             {% endfor %}
         </div>
 
+    {{ super() }}
     {% endblock %}
-    {% block script %}
+    {% block scripts %}
+        {{ super() }}
         <script type="text/javascript">
         $(document).ready(function ()
         {
