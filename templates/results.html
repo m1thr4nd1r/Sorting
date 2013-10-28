@@ -23,20 +23,7 @@
                 {% endfor %}
             </ul>
             {% endfor %}
-        </div> 
-
-        <div id = "resultsByGroup">
-            <ul>
-            {% for group in results %}
-                {{ groups[loop.index0] }}
-                <li> {{ group }} </li>            
-                {% for element in group %}
-                    <li> {{ element }} </li>   
-                {% endfor %}
-                <br/>
-            {% endfor %}
-            </ul>
-        </div> 
+        </div>
 
     {% endblock %}
     {% block script %}
