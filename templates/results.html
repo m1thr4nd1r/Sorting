@@ -2,7 +2,7 @@
     {% block title %} Sorting - Results {% endblock %}
     {% block body %}
         <div id="resultsByOrder">    	
-            <a class="btn btn-default" style="margin-bottom: 10px;" href="#">Resultado por ordem de sorteio &raquo;</a>
+            <a class="btn btn btn-warning btn2" style="margin-bottom: 10px;" href="#">Sorting by Order &raquo;</a>
             <ul class="collapse list-unstyled">
             {% for element in range (results[0]|count) %}        
                 {% for group in groups %}
@@ -14,7 +14,7 @@
 
         <div id = "resultsByGroup">
             {% for group in results %}
-            <a class="btn btn-default" style="margin-bottom: 10px;" href="#"> Group {{ groups[loop.index0] }} &raquo;</a>
+            <a class="btn btn-danger btn2" style="margin-bottom: 10px;" href="#"> Group {{ groups[loop.index0] }} &raquo;</a>
             <ul class="collapse list-unstyled">   
                 {% for element in group %}
                     <li> {{ element }} </li>   
@@ -24,14 +24,15 @@
             {% endfor %}
         </div>
 
-    {{ super() }}
+        {{ super() }}
     {% endblock %}
+
     {% block scripts %}
         {{ super() }}
         <script type="text/javascript">
         $(document).ready(function ()
         {
-            $('.container .btn').on('click', function(e) {
+            $('.container .btn2').on('click', function(e) {
                 e.preventDefault();
                 var $this = $(this);
                 var $collapse = $this.next('.collapse');

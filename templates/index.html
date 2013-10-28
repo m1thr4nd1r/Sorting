@@ -43,11 +43,17 @@
             background: rgba(250,153,0,0.5);
         }
     </style>
+
     <script language="javascript">
+        function del(obj)
+        {
+            $(obj).parent().parent().remove();
+        }
+
         function add(base) 
         {
             var div = document.createElement("div");
-            div.setAttribute("class", "col-md-12 text-center");
+            div.setAttribute("class", "col-md-12 text-center input-group");
             
             //Create an input type dynamically.
             var element = document.createElement("input");
@@ -55,9 +61,28 @@
             //Assign different attributes to the element.
             element.setAttribute("type", "text");
             element.setAttribute("name", base);
-            element.setAttribute("class", (base == "element" ? "orange" : "red"));
+            $class = (base == "element" ? "orange " : "red");
+            $class +=  " form-control";
+            element.setAttribute("class",$class);
+
+            var span = document.createElement("span");
+            span.setAttribute("class", "input-group-btn");
+
+            var btn = document.createElement("button");
+            btn.setAttribute("class", "btn btn-default");
+            btn.setAttribute("type", "button");
+            btn.setAttribute("onclick", "del(this)");
+            
+            var icon = document.createElement("span");
+            icon.setAttribute("class", "glyphicon glyphicon-remove-circle");
+
+            btn.appendChild(icon);
+
+            span.appendChild(btn);
 
             div.appendChild(element);
+            div.appendChild(span);
+
             var doc = document.getElementById(base + 's');
 
             //Append the element in page (in span).
