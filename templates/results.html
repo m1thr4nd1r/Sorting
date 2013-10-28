@@ -3,10 +3,9 @@
     {% block body %}
         {{ results }} 
 
-        <br/><br/>
-
         <div id="resultsByOrder">    	
-            <ul>
+            <a class="btn btn-default" style="margin-bottom: 10px;" href="#">Resultado por ordem de sorteio &raquo;</a>
+            <ul class="collapse list-unstyled">
             {% for element in range (results[0]|count) %}        
                 {% for group in groups %}
                     <li> {{ results[loop.index0][element] }} -> {{ group }} </li>
@@ -15,7 +14,16 @@
             </ul>
         </div>
 
-        <br/>        
+        <div id = "resultsByGroup">
+            {% for group in results %}
+            <a class="btn btn-default" style="margin-bottom: 10px;" href="#"> {{ groups[loop.index0] }} &raquo;</a>
+            <ul class="collapse list-unstyled">   
+                {% for element in group %}
+                    <li> {{ element }} </li>   
+                {% endfor %}
+            </ul>
+            {% endfor %}
+        </div> 
 
         <div id = "resultsByGroup">
             <ul>
@@ -30,4 +38,21 @@
             </ul>
         </div> 
 
+    {% endblock %}
+    {% block script %}
+        <script type="text/javascript">
+        $(document).ready(function ()
+        {
+            $('.container .btn').on('click', function(e) {
+                e.preventDefault();
+                var $this = $(this);
+                var $collapse = $this.next('.collapse');
+
+                if (typeof $collapse.html() === "undefined")
+                    $collapse = $this.next('.in');
+
+                $collapse.collapse('toggle');
+            });
+        });
+        </script>
     {% endblock %}
