@@ -25,23 +25,23 @@ def result():
 		groups = request.values.getlist('group') # Same as before, for tags named 'thing'
 	 	
 	 	# If there isn't any groups or elements then return to index, otherwise keep going
-	 	if len(groups) == 0 or len(elements) == 0:
-		 	if len(groups) == 0:
-		 		flash("No groups added")
-		 	if len(elements) == 0:
-		 		flash("No elements added")
- 			return redirect(url_for('hello')) 			
+ 	 	if len(groups) == 0:
+	 		flash("No groups added")
+	 		return redirect(url_for('hello')) 
+	 	elif len(elements) == 0:
+	 		flash("No elements added")
+ 			return redirect(url_for('hello'))			
 	 	else:
 			# removing white spaces at the beginning and the end of both lists
 	 		g = map(str.strip, map(str, groups))
 	 		e = map(str.strip, map(str, elements))
 
 	 		# if there is any empty element on any of the lists go to the index, otherwise keep going
-	 		if '' in g or '' in e:
-	 			if '' in g:
-		 			flash("Empty Group")
-		 		elif '' in e:
-		 			flash("Empty Element")
+ 			if '' in g:
+	 			flash("Empty Group")
+	 			return redirect(url_for('hello'))
+	 		elif '' in e:
+	 			flash("Empty Element")
  				return redirect(url_for('hello'))
 	 		else:
 	 			# initialize the variables
@@ -51,7 +51,6 @@ def result():
 				selector = -1
 				
 				while len(elements) > 0:
-					
 					pos = random.randint(0,len(elements) - 1)
 					selector = (selector + 1) % len(groups)
 					result[selector].append(elements.pop(pos))
