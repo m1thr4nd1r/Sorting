@@ -4,3 +4,4 @@ sudo pip install virtualenv
 virtualenv --distribute venv
 source venv/bin/activate
 pip install Flask gunicorn
+pip install pymongo
