@@ -1,12 +1,24 @@
 {% extends "index.html" %}
     {% block title %} Sorting - Results {% endblock %}
+
+    {% block welcome %}
+        <h2><p class="text-center col-md-12"> Here are your results </p></h2>             
+    {% endblock %}    
+
+    {% block intro %}
+        <h2><p class="text-center col-md-12"> Make another sorting </p></h2>             
+    {% endblock %}
+
     {% block body %}
+    <div id="results">
         <div id="resultsByOrder">    	
             <a class="btn btn btn-warning btn2" style="margin-bottom: 10px;" href="#">Sorting by Order &raquo;</a>
             <ul class="collapse list-unstyled">
             {% for element in range (results[0]|count) %}        
                 {% for group in groups %}
-                    <li> {{ results[loop.index0][element] }} -> {{ group }} </li>
+                    {% if results[loop.index0][element] is defined %}
+                        <li> {{ results[loop.index0][element] }} -> {{ group }} </li>
+                    {% endif %}                    
                 {% endfor %}
             {% endfor %}
             </ul>
@@ -23,7 +35,8 @@
             <div class="clearfix"></div>
             {% endfor %}
         </div>
-
+    </div>
+        
         {{ super() }}
     {% endblock %}
 

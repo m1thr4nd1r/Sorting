@@ -1,6 +1,13 @@
 {% extends "base.html" %}
     {% block title %} Sorting - Index {% endblock %}
+    
+    {% block welcome %}
+            <h2><p class="text-center col-md-12"> Welcome to the Sorting App </p></h2> 
+            <h5><p class="text-center col-md-12"> The basic ideia of this app is to give each element an group, making possible to sort a group of individuals in a variable number of groups </p></h5>
+    {% endblock %}
+    
     {% block body %}
+        {% block intro %} {% endblock %}
     	<div class="container">
             {% if error %}
                 <p class=error><strong>Error: </strong> {{ error }}
@@ -34,6 +41,7 @@
             </form>
         </div>
     {% endblock %}
+    
     {% block scripts %}
     <style type="text/css">
         .red{
