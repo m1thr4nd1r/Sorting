@@ -8,38 +8,36 @@
     
     {% block body %}
         {% block intro %} {% endblock %}
-    	<div class="container">
-            {% if error %}
-                <p class=error><strong>Error: </strong> {{ error }}
-            {% endif %}
+	    {% if error %}
+            <p class=error><strong>Error: </strong> {{ error }}
+        {% endif %}
 
-            <form action="result" method="POST">
-                <h3 class="text-center">
-                    <span class='col-xs-6'> Elements </span>
-                    <span class='col-xs-6'> Groups </span>
-                </h3>
-                
-                <div class="row">
-                    <div id="elements" class="col-xs-6 text-center"></div>
-                    <div id="groups" class="col-xs-6 text-center"></div>
-                </div>
+        <form action="result" method="POST">
+            <h3 class="text-center">
+                <span class='col-xs-6'> Elements </span>
+                <span class='col-xs-6'> Groups </span>
+            </h3>
+            
+            <div class="row">
+                <div id="elements" class="col-xs-6 text-center"></div>
+                <div id="groups" class="col-xs-6 text-center"></div>
+            </div>
 
-                <div class="row" style="margin-top: 10px;">
-                    <div class="col-xs-6 text-center">
-                        <input type="button" class="btn btn-info btn-sm" value="Add new element" onclick="add('element')"/>  
-                    </div>
-                    <div class="col-xs-6 text-center">
-                        <input type="button" class="btn btn-info btn-sm" value="Add new group" onclick="add('group')"/>  
-                    </div>
+            <div class="row" style="margin-top: 10px;">
+                <div class="col-xs-6 text-center">
+                    <input type="button" class="btn btn-info btn-sm" value="Add new element" onclick="add('element')"/>  
                 </div>
+                <div class="col-xs-6 text-center">
+                    <input type="button" class="btn btn-info btn-sm" value="Add new group" onclick="add('group')"/>  
+                </div>
+            </div>
 
-                <div class="row" style="margin-top: 10px;">
-                    <div class="col-md-12 text-center">
-                        <input type="submit" value="Sort It!" class="btn btn-primary btn-lg">
-                    </div>  
-                </div>
-            </form>
-        </div>
+            <div class="row" style="margin-top: 10px;">
+                <div class="col-md-12 text-center">
+                    <input type="submit" value="Sort It!" class="btn btn-primary btn-lg">
+                </div>  
+            </div>
+        </form>
     {% endblock %}
     
     {% block scripts %}
